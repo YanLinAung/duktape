@@ -1097,6 +1097,7 @@ bi_duk = {
 	'functions': [
 		{ 'name': 'info',			'native': 'duk_bi_duk_object_info',             'length': 1 },
 		{ 'name': 'line',			'native': 'duk_bi_duk_object_line',             'length': 0 },
+		{ 'name': 'act',			'native': 'duk_bi_duk_object_act',              'length': 1 },
 		{ 'name': 'gc',				'native': 'duk_bi_duk_object_gc',		'length': 1 },
 		{ 'name': 'fin',			'native': 'duk_bi_duk_object_fin',		'length': 0,	'varargs': True },
 		{ 'name': 'enc',			'native': 'duk_bi_duk_object_enc',		'length': 0,	'varargs': True },

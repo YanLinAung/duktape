@@ -43,6 +43,11 @@
         def('refc', function(v) { return D.info(v)[2]; });
     }
 
+    // this could be used to provide Duktape.line() instead of a native function
+    if (false) {
+        def('line', function() { return (D.act(-3) || {}).lineNumber; });
+    }
+
     // JSONX/JSONC convenience
     if (false) {
         def('jxEnc', function(a,b,c) { return D.enc('jsonx', a, b, c); });
