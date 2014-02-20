@@ -21,6 +21,10 @@
 #
 #  When creating actual distributables, always clean first.
 #
+#  External projects are downloaded on-the-fly.  Clone git repos shallowly
+#  (--depth 1) whenever possible.  With build-critical resources, use a
+#  specific version instead of "trunk".
+#
 
 # A few commands which may need to be edited.  NodeJS is sometimes found
 # as 'nodejs', sometimes as 'node'; sometimes 'node' is unrelated to NodeJS
@@ -385,7 +389,6 @@ regfuzztest: regfuzz-0.1.tar.gz duk
 underscore:
 	# http://underscorejs.org/
 	# https://github.com/jashkenas/underscore
-	# Use shallow clone to minimize disk use
 	# Master is OK because not a critical dependency
 	$(GIT) clone --depth 1 https://github.com/jashkenas/underscore.git
 
@@ -428,7 +431,6 @@ test262cat: test262-d067d2f0ca30
 
 emscripten:
 	# https://github.com/kripken/emscripten
-	# Use shallow clone to minimize disk use
 	# Master is OK because not a critical dependency
 	$(GIT) clone --depth 1 https://github.com/kripken/emscripten.git
 	cd emscripten; ./emconfigure
@@ -525,7 +527,6 @@ emscriptenluatest: emscripten duk lua-5.2.3
 
 JS-Interpreter:
 	# https://github.com/NeilFraser/JS-Interpreter
-	# Use shallow clone to minimize disk use
 	# Master is OK because not a critical dependency
 	$(GIT) clone --depth 1 https://github.com/NeilFraser/JS-Interpreter.git
 
@@ -580,7 +581,6 @@ UglifyJS:
 	mv UglifyJS-1.3.5 UglifyJS
 	-@rm -f v1.3.5.tar.gz
 
-	# Use shallow clone to minimize disk use
 	# Don't use this because it's a moving critical dependency
 	#$(GIT) clone --depth 1 https://github.com/mishoo/UglifyJS.git
 
@@ -596,7 +596,6 @@ UglifyJS2:
 	-@rm -f v2.4.12.tar.gz
 	cd UglifyJS2; npm install
 
-	# Use shallow clone to minimize disk use
 	# Don't use this because it's a moving critical dependency
 	#$(GIT) clone --depth 1 https://github.com/mishoo/UglifyJS2.git
 
